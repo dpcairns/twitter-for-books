@@ -29,10 +29,6 @@ export function makeArray(book) {
       newTweet = book.slice(0, newTweet.length - 1);
     }
 
-
-    console.log('=============================\n');
-    console.log('|| newTweet', newTweet);
-    console.log('\n=============================');
     arr.push(newTweet);
     book = book.slice(newTweet.length);
   }
