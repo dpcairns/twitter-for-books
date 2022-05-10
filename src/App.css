@@ -1,3 +1,6 @@
+body {
+  font-size: 15px;
+}
 .App {
   text-align: center;
 }
@@ -35,4 +38,38 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.tweet {
+  width: 600px;
+}
+
+hr {
+  width: 90%
+}
+
+.show-more-tweets {
+  padding: 5px;
+  cursor: pointer;
+}
+
+.show-more-tweets:hover {
+  color: #282c34;
+  background-color:sandybrown;
+}
+
+nav {
+  text-align: center;
+  list-style: none;
+}
+
+nav li {
+  list-style: none;
+}
+
+nav a {
+  color: black;
+}
+header a {
+  color: white;
 }

@@ -2,10 +2,11 @@ const fetch = require('node-fetch');
 require('dotenv').config();
 
 
-exports.handler = async (event, context) => {
+exports.handler = async ({ queryStringParameters: { id } }) => {
   try {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
-    const data = await response.json();
+    
+    const response = await fetch(`https://www.gutenberg.org/files/${id}/${id}-0.txt`);
+    const data = await response.text();
     const json = JSON.stringify({ data });
     
     return { 
