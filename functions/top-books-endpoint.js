@@ -11,9 +11,12 @@ function mungeHTMLText(text) {
     .map(li => $(li).find('a'))
     .filter(a => a.attr('href').split('/')[1] === 'ebooks')
     .map(a => ({
-      title: a.text(),
+      title: a.text().replace(/\(\d+\)/g, ''),
       id: a.attr('href').split('/')[2]
-    }));
+    }))
+    // dedupe by title
+    .reduce((acc, curr) => 
+      acc.find(item => curr.title === item.title) ? acc : [...acc, curr], []);
 
   return data;
 }
