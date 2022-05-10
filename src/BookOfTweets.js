@@ -24,7 +24,7 @@ export default function BookOfTweets() {
     }
 
     load();
-  }, []);
+  }, [id]);
   
   async function handleShowMoreClick() {
     setIsLoading(true);

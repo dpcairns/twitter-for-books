@@ -18,7 +18,7 @@ function mungeHTMLText(text) {
   return data;
 }
 
-exports.handler = async (event, context) => {
+exports.handler = async () => {
   try {
     const response = await fetch('https://www.gutenberg.org/browse/scores/top');
     const responseText = await response.text();
