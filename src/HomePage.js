@@ -10,7 +10,7 @@ export default function HomePage() {
     async function load() {
       setIsLoading(true);
 
-      const res = await fetch('http://localhost:8888/.netlify/functions/top-books-endpoint');
+      const res = await fetch(`${process.env.REACT_APP_URL}/.netlify/functions/top-books-endpoint`);
       const json = await res.json();
 
       setTopBooks(json.data);
