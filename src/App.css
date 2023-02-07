@@ -1,4 +1,4 @@
-html, body, #root, .route-wrapper {
+html, body, #root, .route-wrapper{
   height: 100%;
 }
 
@@ -8,7 +8,7 @@ body {
   color: white;
 }
 
-.App {
+.App, .home-page, .list {
   height: 100%;
 }
 
@@ -20,9 +20,8 @@ input {
   display: block;
 }
 
-nav {
+.sticky {
   position: fixed;
-  bottom: 0px;
   display: flex;
   justify-content: center;
   align-content: center;
@@ -33,6 +32,17 @@ nav {
   border-bottom: dotted 1px white;
   z-index: 2;
   cursor: pointer;
+}
+
+.footer {
+  bottom: 0px;
+  max-width: 25%;
+}
+
+.link-home {
+  top: 0px;
+  right: 0px;
+  padding: 20px;
 }
 
 nav:hover {
@@ -52,10 +62,12 @@ nav li {
   list-style: none;
 }
 
-.App-header {
+main {
   margin: 0 auto;
   width: 600px;
   border: dotted 1px white;
+  border-bottom: none;
+  border-top: none;
   position: relative;
   background-color: #282c34;
   min-height: 100vh;
@@ -81,29 +93,26 @@ hr {
   color: orange;
 }
 
-
-a {
-  color: white;
-}
-
-
 .avatar {
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  position: relative;
-  top: 10px;
-  left: 5px;
+}
+
+.tweet .left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10px;
 }
 
 .tweet {
   font-size: .9rem;
-  max-width: 650px;
-  display: flex;
-  padding: 5px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 65px auto;
   border-bottom: dotted 1px white;
-  padding-bottom: 15px;
-  padding-top: 15px;
+  padding: 15px;
 }
 
 .tweet .right {
@@ -121,4 +130,44 @@ a {
 
 .tweet .right p {
   margin: 5px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.list {
+  margin: 0 auto;
+  width: 600px;
+  color: white;
+}
+
+.list-title {
+  color: white;
+  border: dotted 1px white;
+  padding: 50px;
+}
+
+.list-title:hover {
+  background-color: orange;
+  color: black;
+}
+
+.description {
+  text-align: right;
+}
+
+.description a {
+  color: white;
+  text-decoration: underline;
+}
+
+input {
+  height: 20px;
+  width: 33%;
+}
+
+.home-spinner-container {
+  display: flex;
+  justify-content: center;
 }

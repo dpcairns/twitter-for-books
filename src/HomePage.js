@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import { Link } from 'react-router-dom';
+import Spinner from './Spinner';
 export default function HomePage() {
   const [topBooks, setTopBooks] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -30,21 +31,34 @@ export default function HomePage() {
   }, [filter, topBooks]);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h2>Top books</h2>
+    <div className="home-page">
+      <section className="list">
+        <div className='description'>
+          <h1>Gutenscroll</h1>
+          <h2>
+            <div>A doom-scrollable selection of </div>
+            <div>
+              <a href="https://www.gutenberg.org/browse/scores/top">Project Gutenberg&apos;s</a> most popular books
+            </div>
+          </h2>
+        </div>
+
         <label>
-        Filter Books
+          Filter Books
           <input onChange={e => setFilter(e.target.value)} />
         </label>
-        { isLoading && <p>Loading . . .</p>}
+
+        { isLoading && <div className='home-spinner-container'>
+          <Spinner />
+        </div>}
+
         {
           filteredBooks.map((book, i) => 
             <Link to={`book/${book.id}/${book.title}`} key={book + i}>
-              <p className='title'>{book.title}</p>
+              <p className='list-title'>{book.title}</p>
             </Link>)
         }
-      </header>
+      </section>
     </div>
   );
 }

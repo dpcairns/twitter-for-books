@@ -23,7 +23,6 @@ function mungeHTMLText(text) {
 
 exports.handler = async () => {
   try {
-    console.log('doing');
     const response = await fetch('https://www.gutenberg.org/browse/scores/top');
     const responseText = await response.text();
 
