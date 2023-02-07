@@ -175,10 +175,12 @@ input {
 @media(max-width: 600px) {
   main {
     width: auto;
+    margin: 5px;
   }
 
   .list { 
     width: auto;
+    margin: 5px;
   }
 
   .footer {
@@ -189,6 +191,10 @@ input {
     text-align:  center;
   }
 
+  .link-home {
+    padding: 8px;
+  }
+
   input {
     margin: 0 auto;
   }
@@ -196,4 +202,5 @@ input {
   .description {
     padding: 10px;
   }
+
 }
