@@ -25,7 +25,10 @@ export default function HomePage() {
   
   useEffect(() => {
     const filteredBooks = topBooks
-      .filter(book => book.title.toLowerCase().includes(filter.toLowerCase()));
+      .filter(book => 
+        !book.title.toLowerCase().includes('little women') &&
+        book.title.toLowerCase().includes(filter.toLowerCase())
+      );
 
     setFilteredBooks(filteredBooks);
   }, [filter, topBooks]);
