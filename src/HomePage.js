@@ -8,6 +8,8 @@ export default function HomePage() {
   const [filteredBooks, setFilteredBooks] = useState(topBooks);
   const [filter, setFilter] = useState('');
 
+  const brokenBooks = ['little women', 'the complete works of william shakespeare'];
+
   useEffect(() =>{
     async function load() {
       setIsLoading(true);
@@ -26,7 +28,7 @@ export default function HomePage() {
   useEffect(() => {
     const filteredBooks = topBooks
       .filter(book => 
-        !book.title.toLowerCase().includes('little women') &&
+        !brokenBooks.includes(book.title.toLowerCase()) &&
         book.title.toLowerCase().includes(filter.toLowerCase())
       );
 
