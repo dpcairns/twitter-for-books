@@ -25,7 +25,7 @@ export default function HomePage() {
   }, []);
   
   useEffect(() => {
-    const brokenBooks = ['little women', 'the complete works of william shakespeare'];
+    const brokenBooks = ['little women', 'the complete works of william shakespeare by william shakespeare'];
 
     const filteredBooks = topBooks
       .filter(book => 
