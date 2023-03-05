@@ -37,6 +37,7 @@ jobs:
         id: netlify-done
         with:
           site_id: 7755e198-c65a-4dc9-8f0c-45fa53b54ee2
+          max_timeout: 9999999
         env:
           NETLIFY_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
       - name: Run Playwright tests
