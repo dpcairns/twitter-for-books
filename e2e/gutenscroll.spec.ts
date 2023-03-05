@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:8888');
+  await page.goto('http://localhost:8888/');
   await page.getByRole('link', { name: 'A Room with a View by E. M. Forster' }).click();
   await page.getByText('show more tweets').click();
   await page.getByText('show more tweets').click();

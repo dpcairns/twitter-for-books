@@ -10,6 +10,10 @@ import { defineConfig, devices } from '@playwright/test';
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  webServer: {
+    command: 'npm run dev',
+    url: 'http://localhost:8888/',
+  },
   testDir: './e2e',
   /* Maximum time one test can run for. */
   timeout: 30 * 1000,
