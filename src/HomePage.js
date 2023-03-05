@@ -13,7 +13,7 @@ export default function HomePage() {
     async function load() {
       setIsLoading(true);
 
-      const res = await fetch(`${process.env.REACT_APP_URL}/.netlify/functions/top-books`);
+      const res = await fetch(`/.netlify/functions/top-books`);
       const json = await res.json();
 
       setTopBooks(json.data);
