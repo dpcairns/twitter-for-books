@@ -35,14 +35,14 @@ jobs:
         id: netlify-done
         with:
           site_id: '7755e198-c65a-4dc9-8f0c-45fa53b54ee2' # See Settings > Site Details > General in the Netlify UI
-          env:
-            NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
-        with:
-          env: ${{ steps.netlify-done.outputs.url }}
+        env: 
+          NETLIFY_URL: ${{ steps.netlify-done.outputs.url }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
