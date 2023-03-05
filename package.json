@@ -22,7 +22,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "dev": "netlify dev"
+    "dev": "netlify dev",
+    "e2e": "npx playwright test",
+    "e2e:debug": "PWDEBUG=1  npx playwright test",
+    "e2e:generate": "npx playwright codegen",
+    "e2e:report": "npx playwright show-report"
+
   },
   "eslintConfig": {
     "extends": [
