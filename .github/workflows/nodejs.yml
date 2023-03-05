@@ -30,11 +30,13 @@ jobs:
           REACT_APP_SUPABASE_URL: ${{ secrets.REACT_APP_SUPABASE_URL }}
           REACT_APP_SUPABASE_KEY: ${{ secrets.REACT_APP_SUPABASE_KEY }}
           REACT_APP_URL: ${{ secrets.REACT_APP_URL }}
-      - name: Wait for Netlify Preview
+      - name: Wait for Netlify Deploy
+        uses: probablyup/wait-for-netlify-action@3.2.0
         id: netlify-done
         with:
-          site_name: "gutenscroll"
-        uses: JosephDuffy/wait-for-netlify-action@v1.0
+          site_id: '7755e198-c65a-4dc9-8f0c-45fa53b54ee2' # See Settings > Site Details > General in the Netlify UI
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
