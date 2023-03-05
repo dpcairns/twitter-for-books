@@ -35,7 +35,7 @@ jobs:
 
       - name: Wait for Netlify Deploy
         uses: probablyup/wait-for-netlify-action@3.2.0
-        id: waitForDeployment
+        id: netlify-done
         with:
           site_id: 7755e198-c65a-4dc9-8f0c-45fa53b54ee2
         env:
