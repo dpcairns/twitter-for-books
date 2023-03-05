@@ -30,12 +30,16 @@ jobs:
           REACT_APP_SUPABASE_URL: ${{ secrets.REACT_APP_SUPABASE_URL }}
           REACT_APP_SUPABASE_KEY: ${{ secrets.REACT_APP_SUPABASE_KEY }}
           REACT_APP_URL: ${{ secrets.REACT_APP_URL }}
-      - name: Spin up app
-        run: npm run dev    
+      - name: Wait for Netlify Preview
+        id: netlify-done
+        with:
+          site_name: "gutenscroll"
+        uses: JosephDuffy/wait-for-netlify-action@v1.0
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
       - name: Run Playwright tests
         run: npx playwright test
+        env: ${{ steps.netlify-done.outputs.url }}
       - uses: actions/upload-artifact@v3
         if: always()
         with:

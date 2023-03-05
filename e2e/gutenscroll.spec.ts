@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 
 test('test', async ({ page }) => {
-  await page.goto('http://localhost:8888/');
+  await page.goto('/');
   await page.getByRole('link', { name: 'A Room with a View by E. M. Forster' }).click();
   await page.getByText('show more tweets').click();
   await page.getByText('show more tweets').click();
@@ -10,7 +10,7 @@ test('test', async ({ page }) => {
 });
 
 test('test2', async ({ page}) => {
-  await page.goto('http://localhost:8888');
+  await page.goto('/');
   await page.getByLabel('Filter Books').click();
   await page.getByLabel('Filter Books').fill('mob');
   await page.getByRole('link', { name: 'Moby Dick; Or, The Whale by Herman Melville' }).click();
