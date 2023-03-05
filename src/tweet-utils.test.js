@@ -35,7 +35,7 @@ const longerString = `To be, or not to be, that is the question:
   And lose the name of action.`;
 
 test('should reject tweets that cut off words', () => {
-  const valid = tweetIsValid('to be or not', longerString);
+  const valid = tweetIsValid('to be or not ', longerString);
   expect(valid).toBe(true);
 
   const valid2 = tweetIsValid('to be or not to be that is the question ', longerString);
@@ -48,9 +48,5 @@ test('should reject tweets that cut off words', () => {
 test('should make an array from a string of no more than 240 chars that cuts off at the end of words', () => {
   const arr = makeArray(longerString);
 
-
-  console.log('=============================\n');
-  console.log('|| arr', arr);
-  console.log('\n=============================');
   expect(arr.length).toBe(7);
 });

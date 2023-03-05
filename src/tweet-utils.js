@@ -4,12 +4,14 @@ const RANGE_LENGTH = ('(3000/5000))'.length);
 const TWEET_LENGTH = RAW_TWEET_LENGTH - ELLIPSES_LENGTH - RANGE_LENGTH;
 
 export function tweetIsValid(tweet, wholeString) { 
+  console.log(tweet);
   const nextCharAfterTweet = wholeString[tweet.length];
   const lastCharOfTweet = tweet[tweet.length - 1];
 
   const tweetIsWholeBook = wholeString.length <= 240;
   const tweetEndsInOrIsFollowedByASpace = [nextCharAfterTweet, lastCharOfTweet].includes(' ');
 
+  console.log(tweetIsWholeBook, tweetEndsInOrIsFollowedByASpace);
   return tweetIsWholeBook || tweetEndsInOrIsFollowedByASpace;
 }
 
