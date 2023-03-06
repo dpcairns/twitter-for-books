@@ -15,7 +15,7 @@ test('front page lets us filter down books', async ({ page}) => {
   await allTweets.nth(1).waitFor();
   await page.waitForLoadState('networkidle');
 
-  await expect(page).toHaveScreenshot('detail-page-moby-1.png',{ maxDiffPixelRatio: .03 });
+  await expect(page).toHaveScreenshot('detail-page-moby-1.png',{ maxDiffPixelRatio: .0000003 });
 
   await expect(allTweets.nth(2)).toContainText('States, you will have to check the laws of the country where you are located before using this eBook. Title: Moby-Dick; or The Whale Author: Herman Melville Release Date: June, 2001 [eBook #2701] [Most 3/5867');
   await page.getByText('show more tweets').click();
