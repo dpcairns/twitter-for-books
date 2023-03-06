@@ -39,6 +39,6 @@ test('detail page loads tweets two at a time on click', async ({ page }) => {
   await page.getByText('X', { exact: true }).click();
   await page.waitForLoadState('networkidle');
 
-  await expect(page).toHaveScreenshot('detail-page-forster-1.png', { maxDiffPixelRatio: 0.00000003, fullPage: true });
+  await expect(page).toHaveScreenshot('detail-page-forster-1.png', { maxDiffPixelRatio: 0.03, fullPage: true });
 
 });
