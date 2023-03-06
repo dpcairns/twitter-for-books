@@ -45,9 +45,10 @@ jobs:
           REACT_APP_SUPABASE_URL: ${{ secrets.REACT_APP_SUPABASE_URL }}
           REACT_APP_SUPABASE_KEY: ${{ secrets.REACT_APP_SUPABASE_KEY }}
           REACT_APP_URL: ${{ secrets.REACT_APP_URL }}
-      - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-
+      - name: Start docker
+        run: npm run docker
+      - name: install inside docker
+        run: npm i
       - name: Wait for Netlify Deploy
         uses: probablyup/wait-for-netlify-action@3.2.0
         id: netlify-done
