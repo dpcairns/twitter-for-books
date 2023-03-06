@@ -26,7 +26,7 @@ test('front page lets us filter down books', async ({ page}) => {
   await expect(allTweets).toHaveCount(7);
 
   await page.waitForLoadState('networkidle');
-  await expect(page).toHaveScreenshot('detail-page-moby-1.png', { maxDiffPixelRatio: .03, fullPage: true });
+  await expect(page).toHaveScreenshot('detail-page-moby-2.png', { maxDiffPixelRatio: .03, fullPage: true });
 });
 
 
