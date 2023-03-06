@@ -54,6 +54,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - run: npm install --dev
       - name: Install Playwright
         run: npx playwright install
       - name: Wait for netlify
