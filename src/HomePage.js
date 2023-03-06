@@ -25,7 +25,7 @@ export default function HomePage() {
   }, []);
   
   useEffect(() => {
-    const brokenBooks = ['little women', 'little women; or, meg, jo, beth, and amy', 'the complete works of william shakespeare by william shakespeare'];
+    const brokenBooks = ['Little Women; Or, Meg, Jo, Beth, and Amy by Louisa May Alcott', 'The Complete Works of William Shakespeare by William Shakespeare'].map(it => `${it.toLowerCase()} `); // add a weird space at the end of the title to account from apparent error in my regex in top-books function.
 
     const filteredBooks = topBooks
       .filter(book => 
