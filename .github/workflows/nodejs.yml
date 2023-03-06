@@ -63,6 +63,7 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
+        if: always()
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
@@ -71,7 +72,6 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v1
       # - uses: actions/upload-artifact@v3
-      #   if: always()
       #   with:
       #     name: playwright-report
       #     path: playwright-report/
