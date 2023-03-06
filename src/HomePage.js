@@ -42,7 +42,7 @@ export default function HomePage() {
         <div className='description'>
           <h1>Gutenscroll</h1>
           <h2>
-            <div>A doom-scrollable selection of </div>
+            <div>A doom-scrollable compendium of </div>
             <div>
               <a href="https://www.gutenberg.org/browse/scores/top">Project Gutenberg&apos;s</a> most popular books
             </div>
