@@ -45,11 +45,19 @@ jobs:
           REACT_APP_SUPABASE_URL: ${{ secrets.REACT_APP_SUPABASE_URL }}
           REACT_APP_SUPABASE_KEY: ${{ secrets.REACT_APP_SUPABASE_KEY }}
           REACT_APP_URL: ${{ secrets.REACT_APP_URL }}
-      - name: Start docker
-        run: npm run docker
-      - name: install inside docker
-        run: npm i
-      - name: Wait for Netlify Deploy
+  test:
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.31.0-focal
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Install dependencies
+        run: npm ci
+      - name: Install Playwright
+        run: npx playwright install
         uses: probablyup/wait-for-netlify-action@3.2.0
         id: netlify-done
         with:
@@ -78,3 +86,5 @@ jobs:
       #     name: playwright-report
       #     path: playwright-report/
       #     retention-days: 30
+
+
