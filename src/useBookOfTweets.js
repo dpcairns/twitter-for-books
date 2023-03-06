@@ -25,7 +25,7 @@ export function useBookOfTweets() {
     async function load() {
       setIsLoading(true);
   
-      const res = await fetch(`${process.env.REACT_APP_URL}/.netlify/functions/book?id=${id}`);
+      const res = await fetch(`/.netlify/functions/book?id=${id}`);
       const json = await res.json();
   
       setBook(json.data);
