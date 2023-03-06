@@ -8,13 +8,12 @@ export default function HomePage() {
   const [filteredBooks, setFilteredBooks] = useState(topBooks);
   const [filter, setFilter] = useState('');
 
-  const brokenBooks = ['little women', 'the complete works of william shakespeare'];
 
   useEffect(() =>{
     async function load() {
       setIsLoading(true);
 
-      const res = await fetch(`${process.env.REACT_APP_URL}/.netlify/functions/top-books`);
+      const res = await fetch(`/.netlify/functions/top-books`);
       const json = await res.json();
 
       setTopBooks(json.data);
@@ -26,6 +25,8 @@ export default function HomePage() {
   }, []);
   
   useEffect(() => {
+    const brokenBooks = ['little women', 'the complete works of william shakespeare by william shakespeare'];
+
     const filteredBooks = topBooks
       .filter(book => 
         !brokenBooks.includes(book.title.toLowerCase()) &&
@@ -41,7 +42,7 @@ export default function HomePage() {
         <div className='description'>
           <h1>Gutenscroll</h1>
           <h2>
-            <div>A doom-scrollable selection of </div>
+            <div>A doom-scrollable compendium of </div>
             <div>
               <a href="https://www.gutenberg.org/browse/scores/top">Project Gutenberg&apos;s</a> most popular books
             </div>

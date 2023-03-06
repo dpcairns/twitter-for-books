@@ -35,7 +35,7 @@ exports.handler = async () => {
       body: jsonIds
     };
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: 'Failed fetching data' }),

@@ -14,6 +14,7 @@ export function tweetIsValid(tweet, wholeString) {
 }
 
 export function makeArray(book) {
+  
   // book = book.replace(/\n/g, '');
   const arr = [];
 

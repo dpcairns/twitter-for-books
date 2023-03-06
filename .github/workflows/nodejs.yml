@@ -18,9 +18,9 @@ jobs:
         node-version: [16.x]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
       - run: npm install --dev
@@ -30,3 +30,25 @@ jobs:
           CI: true
           REACT_APP_SUPABASE_URL: ${{ secrets.REACT_APP_SUPABASE_URL }}
           REACT_APP_SUPABASE_KEY: ${{ secrets.REACT_APP_SUPABASE_KEY }}
+          REACT_APP_URL: ${{ secrets.REACT_APP_URL }}
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Wait for Netlify Deploy
+        uses: probablyup/wait-for-netlify-action@3.2.0
+        id: netlify-done
+        with:
+          site_id: 7755e198-c65a-4dc9-8f0c-45fa53b54ee2
+          max_timeout: 9999999
+        env:
+          NETLIFY_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      - name: Run Playwright tests
+        run: npx playwright test
+        env: 
+          NETLIFY_URL: ${{ steps.netlify-done.outputs.url }}
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
