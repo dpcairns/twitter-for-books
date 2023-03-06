@@ -46,9 +46,19 @@ jobs:
         run: npx playwright test
         env: 
           NETLIFY_URL: ${{ steps.netlify-done.outputs.url }}
-      - uses: actions/upload-artifact@v3
-        if: always()
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
+          # Upload entire repository
+          path: test-report/
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
+      # - uses: actions/upload-artifact@v3
+      #   if: always()
+      #   with:
+      #     name: playwright-report
+      #     path: playwright-report/
+      #     retention-days: 30
