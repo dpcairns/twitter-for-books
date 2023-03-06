@@ -24,3 +24,19 @@ test('test2', async ({ page}) => {
 
   await expect(allTweets).toHaveCount(7);
 })
+
+
+test('the front page should wait for loading and match the screenshot', async ({ page }) => {
+  await page.goto('/');
+  await page.getByText('A Room with a View by E.M. Forester').waitFor();
+  await expect(page).toHaveScreenshot({ maxDiffPixels: 1000 });
+});
+
+test('the detail page for moby dick should match the screenshot', async ({ page }) => {
+  await page.goto('/');
+  await page.getByLabel('Filter Books').click();
+  await page.getByLabel('Filter Books').fill('mob');
+  await page.getByRole('link', { name: 'Moby Dick; Or, The Whale by Herman Melville' }).click();
+  await expect(page).toHaveScreenshot({ maxDiffPixels: 1000 });
+});
+
