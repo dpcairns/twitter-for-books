@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Gutenscroll - Doomscroll the classics</string>
+    <string name="title_activity_main">Gutenscroll - Doomscroll the classics</string>
+    <string name="package_name">com.gutenscroll.app</string>
+    <string name="custom_url_scheme">com.gutenscroll.app</string>
+</resources>

@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@capacitor/android": "^4.7.0",
     "@capacitor/core": "^4.7.0",
+    "@capacitor/ios": "^4.7.0",
     "@supabase/supabase-js": "^1.28.5",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^11.2.7",
@@ -29,7 +31,8 @@
     "e2e:generate": "npx playwright codegen",
     "e2e:report": "npx playwright show-report",
     "docker": "docker run --rm --network host -v $(pwd):/work/ -w /work/ -it mcr.microsoft.com/playwright:v1.31.0-focal /bin/bash",
-    "snap": "npx playwright test --update-snapshots"
+    "snap": "npx playwright test --update-snapshots",
+    "netlify:build": "netlify build --context deploy-preview"
   },
   "eslintConfig": {
     "extends": [
